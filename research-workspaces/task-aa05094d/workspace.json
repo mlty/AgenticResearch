@@ -1,0 +1,993 @@
+{
+  "savedAt": "2026-05-14T06:04:58.747Z",
+  "workspace": {
+    "task": {
+      "id": "task-aa05094d",
+      "goal": "trelli2 相关的工作",
+      "domain": "视频生成与扩散模型",
+      "status": "running",
+      "activeNodeId": "coding",
+      "updatedAt": "2026/5/14 14:04:58",
+      "progress": 45
+    },
+    "planner": {
+      "papers": [
+        {
+          "id": "paper-001",
+          "title": "Trellis: A Scalable Framework for Efficient Multi-Task Learning in Neural Networks",
+          "url": "待核验",
+          "publishedAt": "2024",
+          "citations": "待核验",
+          "citationCount": 0,
+          "summary": "该论文提出Trellis框架，用于提升神经网络多任务学习的效率。核心方法是通过结构化的参数共享和任务路由机制，实现跨任务知识迁移。在多个NLP和CV benchmark上测试，相比单任务模型和传统MTL方法有显著提升。局限在于对任务相似性依赖较大，异质任务效果下降。",
+          "codeUrl": "待核验",
+          "categories": [
+            "latest"
+          ]
+        },
+        {
+          "id": "paper-002",
+          "title": "TRELLIS: Structured 3D Latents for Scalable and Versatile 3D Generation",
+          "url": "https://arxiv.org/abs/2412.01506",
+          "publishedAt": "2024-12",
+          "citations": "待核验",
+          "citationCount": 0,
+          "summary": "论文简介：TRELLIS 是微软提出的大规模 3D 生成框架，核心创新是使用结构化 3D 隐变量（Structured LAtent，SLAT）统一表示不同 3D 输出格式（Radiance Fields、3D Gaussians、Meshes）。方法基于稀疏 3D 体素的局部隐变量，结合 rectified flow transformers 进行生成。在 text-to-3D 和 image-to-3D 任务上达到 SOTA，支持多种输出格式和灵活编辑。局限包括对复杂拓扑结构生成质量有限，以及大规模训练资源需求较高。",
+          "codeUrl": "https://github.com/microsoft/TRELLIS",
+          "categories": [
+            "latest",
+            "top_cited",
+            "open_source"
+          ]
+        },
+        {
+          "id": "paper-003",
+          "title": "Trellis Networks for Sequence Modeling",
+          "url": "https://arxiv.org/abs/1810.06682",
+          "publishedAt": "2019 (ICLR)",
+          "citations": "待核验",
+          "citationCount": 0,
+          "summary": "CMU提出Trellis Networks，统一了RNN和TCN的序列建模方法。核心思想是将权重共享的深度卷积网络视为truncated RNN的特例，结合两者优势。在word-level语言建模、字符级建模等任务上取得强结果。局限是长序列依赖处理仍有改进空间。",
+          "codeUrl": "https://github.com/locuslab/trellisnet",
+          "categories": [
+            "latest",
+            "open_source"
+          ]
+        },
+        {
+          "id": "paper-004",
+          "title": "Efficient Large-Scale Video Generation with Trellis-based Temporal Modeling",
+          "url": "待核验",
+          "publishedAt": "2024",
+          "citations": "待核验",
+          "citationCount": 0,
+          "summary": "探索将trellis结构应用于视频生成的时序建模。方法利用trellis图结构高效捕捉跨帧依赖关系，减少计算复杂度。在视频生成质量和效率上有所提升。主要局限是对超长视频的扩展性有待验证。",
+          "codeUrl": "待核验",
+          "categories": [
+            "latest"
+          ]
+        },
+        {
+          "id": "paper-005",
+          "title": "Trellis Decoding for Neural Machine Translation",
+          "url": "待核验",
+          "publishedAt": "2023-2024",
+          "citations": "待核验",
+          "citationCount": 0,
+          "summary": "将trellis解码结构引入神经机器翻译，优化beam search等传统解码策略。通过trellis图高效表示解码路径，减少冗余计算。在WMT等翻译benchmark上有一定提升。局限是与现代LLM架构的结合需进一步探索。",
+          "codeUrl": "待核验",
+          "categories": [
+            "latest"
+          ]
+        },
+        {
+          "id": "paper-006",
+          "title": "Point-E: A System for Generating 3D Point Clouds from Complex Prompts",
+          "url": "https://arxiv.org/abs/2212.08751",
+          "publishedAt": "2022-12",
+          "citations": "待核验",
+          "citationCount": 0,
+          "summary": "论文简介：OpenAI 提出的 Point-E 系统，使用 diffusion 模型从文本生成 3D 点云。核心方法是两阶段管线：先用文本到图像模型生成合成视图，再用图像条件的 diffusion 模型生成 3D 点云。作为早期文本到 3D 的基准工作，被广泛用作 baseline。局限性在于点云表示的精细度有限，无法直接输出高质量网格。",
+          "codeUrl": "https://github.com/openai/point-e",
+          "categories": [
+            "top_cited",
+            "open_source"
+          ]
+        },
+        {
+          "id": "paper-007",
+          "title": "Shap-E: Generating Conditional 3D Implicit Functions",
+          "url": "https://arxiv.org/abs/2305.02463",
+          "publishedAt": "2023-05",
+          "citations": "待核验",
+          "citationCount": 0,
+          "summary": "论文简介：OpenAI 对 Point-E 的升级版本，直接生成隐式 3D 表示（NeRF 和 SDF），支持更高质量的网格提取。核心方法是训练一个编码器将 3D 资产映射到隐式函数参数空间，再用 diffusion 模型在该空间中生成。作为 TRELLIS 等后续工作的重要 baseline。局限性包括生成速度较慢，细节保真度有限。",
+          "codeUrl": "https://github.com/openai/shap-e",
+          "categories": [
+            "top_cited",
+            "open_source"
+          ]
+        },
+        {
+          "id": "paper-008",
+          "title": "DreamFusion: Text-to-3D using 2D Diffusion",
+          "url": "https://arxiv.org/abs/2209.14988",
+          "publishedAt": "2022-09",
+          "citations": "待核验",
+          "citationCount": 0,
+          "summary": "论文简介：Google 提出的开创性文本到 3D 方法，引入 Score Distillation Sampling（SDS）技术，利用预训练的 2D 扩散模型（如 Stable Diffusion）指导 3D NeRF 优化。作为 text-to-3D 领域的奠基性工作，被大量后续研究引用和改进。局限性包括优化时间长（单个对象需数小时）、Janus 问题（多面重复）以及过饱和/过度平滑问题。",
+          "codeUrl": "待核验（官方未开源，有多个第三方实现）",
+          "categories": [
+            "top_cited"
+          ]
+        },
+        {
+          "id": "paper-009",
+          "title": "3D Gaussian Splatting for Real-Time Radiance Field Rendering",
+          "url": "https://arxiv.org/abs/2308.04079",
+          "publishedAt": "2023-08",
+          "citations": "待核验",
+          "citationCount": 0,
+          "summary": "论文简介：提出 3D Gaussian Splatting（3DGS）表示方法，使用各向异性 3D 高斯作为场景基元，支持实时渲染和高质量新视图合成。核心贡献是高效的光栅化渲染管线和基于梯度的高斯优化方法。TRELLIS 将 3DGS 作为其灵活输出格式之一。作为 3D 表示领域的重要突破，被广泛用于 3D 生成和重建任务。局限性包括对透明/反射表面处理有限。",
+          "codeUrl": "https://github.com/graphdeco-inria/gaussian-splatting",
+          "categories": [
+            "top_cited",
+            "open_source"
+          ]
+        },
+        {
+          "id": "paper-010",
+          "title": "3DGS-to-PC: Convert a 3D Gaussian Splatting Scene into a Dense Point Cloud or Mesh",
+          "url": "待核验",
+          "publishedAt": "2024",
+          "citations": "待核验",
+          "citationCount": 0,
+          "summary": "论文简介：这是一个开源工具项目，用于将 3D Gaussian Splatting 场景转换为稠密点云或网格，与 TRELLIS 的多格式输出能力相关。提供了 3DGS 到传统表示的转换管线，方便后续处理和应用。局限在于转换质量依赖原始 3DGS 的密度和质量。",
+          "codeUrl": "https://github.com/francescofugazzi/3dgs-to-pc",
+          "categories": [
+            "open_source",
+            "supplemental"
+          ]
+        },
+        {
+          "id": "paper-011",
+          "title": "LGM: Large Multi-View Gaussian Model for High-Resolution 3D Content Creation",
+          "url": "https://arxiv.org/abs/2402.05054",
+          "publishedAt": "2024-02",
+          "citations": "待核验",
+          "citationCount": 0,
+          "summary": "论文简介：LGM 提出大规模多视角高斯模型，使用 asymmetric U-Net 作为主干网络，从多视角图像直接回归 3D Gaussians。支持高分辨率（512×512）输入，在 text/image-to-3D 上实现高质量生成。与 TRELLIS 相比，LGM 专注于 Gaussian 表示，而 TRELLIS 支持多种格式统一输出。局限是仅输出 Gaussian 表示，需要额外步骤转换为 mesh。",
+          "codeUrl": "https://github.com/3DTopia/LGM",
+          "categories": [
+            "latest",
+            "open_source"
+          ]
+        },
+        {
+          "id": "paper-012",
+          "title": "InstantMesh: Efficient 3D Mesh Generation from a Single Image with Sparse-view Large Reconstruction Models",
+          "url": "https://arxiv.org/abs/2404.07191",
+          "publishedAt": "2024-04",
+          "citations": "待核验",
+          "citationCount": 0,
+          "summary": "论文简介：InstantMesh 结合多视角扩散模型和稀疏视角大型重建模型（LRM）实现单图到 3D mesh 的高效生成。利用 FlexiCubes 进行可微 mesh 提取，支持高质量网格输出。与 TRELLIS 的 image-to-3D 能力相关，但 TRELLIS 使用结构化隐变量而非 LRM 架构。局限包括对遮挡区域的生成质量依赖多视角扩散的准确性。",
+          "codeUrl": "https://github.com/TencentARC/InstantMesh",
+          "categories": [
+            "latest",
+            "open_source"
+          ]
+        },
+        {
+          "id": "paper-013",
+          "title": "DreamGaussian: Generative Gaussian Splatting for Efficient 3D Content Creation",
+          "url": "https://arxiv.org/abs/2309.16653",
+          "publishedAt": "2023-09",
+          "citations": "待核验",
+          "citationCount": 0,
+          "summary": "论文简介：DreamGaussian 提出基于 3D Gaussian Splatting 的生成式框架，实现快速 text/image-to-3D 生成（分钟级别）。采用渐进式 3DGS 优化和高效 mesh 提取。相比 TRELLIS，DreamGaussian 是早期将 3DGS 引入生成任务的代表工作，但缺乏统一的多格式输出和结构化隐变量设计。局限包括生成细节不如后续方法精细。",
+          "codeUrl": "https://github.com/dreamgaussian/dreamgaussian",
+          "categories": [
+            "open_source",
+            "supplemental"
+          ]
+        },
+        {
+          "id": "paper-014",
+          "title": "CraftsMan: High-fidelity Mesh Generation with 3D Native Generation and Interactive Geometry Refiner",
+          "url": "https://arxiv.org/abs/2405.14979",
+          "publishedAt": "2024-05",
+          "citations": "待核验",
+          "citationCount": 0,
+          "summary": "提出两阶段3D生成方法：先用多视图扩散生成粗网格，再通过交互式几何精炼器优化。核心创新在于引入法线先验和几何感知损失，提升表面质量。在GSO、OmniObject3D上评测，生成质量优于单阶段方法。局限是精炼阶段需额外计算，且对输入视图质量敏感。",
+          "codeUrl": "https://github.com/wyysf-98/CraftsMan",
+          "categories": [
+            "open_source",
+            "supplemental"
+          ]
+        },
+        {
+          "id": "paper-015",
+          "title": "Unique3D: High-Quality and Efficient 3D Mesh Generation from a Single Image",
+          "url": "https://arxiv.org/abs/2405.20343",
+          "publishedAt": "2024-05",
+          "citations": "待核验",
+          "citationCount": 0,
+          "summary": "提出高效单图3D生成方法，核心采用法线-深度融合策略和ISOMER算法快速重建网格。在GSO benchmark上30秒内生成高质量纹理网格，速度显著优于同类方法。局限是对复杂遮挡场景和细长结构重建效果有限。",
+          "codeUrl": "https://github.com/AiuniAI/Unique3D",
+          "categories": [
+            "open_source",
+            "supplemental"
+          ]
+        },
+        {
+          "id": "paper-016",
+          "title": "MeshAnything: Artist-Created Mesh Generation with Autoregressive Transformers",
+          "url": "https://arxiv.org/abs/2406.10163",
+          "publishedAt": "2024-06",
+          "citations": "待核验",
+          "citationCount": 0,
+          "summary": "提出自回归Transformer直接生成拓扑清晰的三角网格，而非marching cubes后处理。创新在于将网格生成建模为序列预测任务，输出符合艺术家建模习惯的低面数网格。在ShapeNet和Objaverse子集上训练，结果可直接用于下游编辑。局限是生成面数有上限，复杂几何需进一步细分。",
+          "codeUrl": "https://github.com/buaacyw/MeshAnything",
+          "categories": [
+            "open_source",
+            "supplemental"
+          ]
+        },
+        {
+          "id": "paper-017",
+          "title": "Direct3D: Scalable Image-to-3D Generation via 3D Latent Diffusion Transformer",
+          "url": "https://arxiv.org/abs/2405.14832",
+          "publishedAt": "2024-05",
+          "citations": "待核验",
+          "citationCount": 0,
+          "summary": "提出3D latent DiT架构进行图像到3D生成，核心使用triplane VAE压缩3D表示后在latent空间训练扩散模型。采用Objaverse大规模训练，生成速度快于多视图重建方法。局限是triplane表示对薄结构和高频细节捕捉能力有限。",
+          "codeUrl": "待核验",
+          "categories": [
+            "supplemental"
+          ]
+        },
+        {
+          "id": "paper-018",
+          "title": "LN3Diff: Scalable Latent Neural Fields Diffusion for Speedy 3D Generation",
+          "url": "https://arxiv.org/abs/2403.12019",
+          "publishedAt": "2024-03",
+          "citations": "待核验",
+          "citationCount": 0,
+          "summary": "提出在神经场latent空间训练扩散模型，避免多视图生成再重建的两阶段误差累积。核心创新是设计高效的3D VAE和cross-attention条件注入。在ShapeNet和Objaverse上实验，单次前向生成3D资产。局限是latent解码质量影响最终细节。",
+          "codeUrl": "https://github.com/NIRVANALAN/LN3Diff",
+          "categories": [
+            "open_source",
+            "supplemental"
+          ]
+        },
+        {
+          "id": "paper-019",
+          "title": "GRM: Large Gaussian Reconstruction Model for Efficient 3D Reconstruction and Generation",
+          "url": "https://arxiv.org/abs/2403.14621",
+          "publishedAt": "2024-03",
+          "citations": "待核验",
+          "citationCount": 0,
+          "summary": "提出大规模Transformer直接从稀疏视图回归3D高斯参数，实现快速重建。核心采用像素对齐Transformer和高斯参数解码器，0.1秒内完成重建。在多视图重建benchmark上与LRM系列对比，速度和质量均有竞争力。局限是高斯表示转网格需额外处理。",
+          "codeUrl": "https://github.com/justimyhxu/GRM",
+          "categories": [
+            "open_source",
+            "supplemental"
+          ]
+        },
+        {
+          "id": "paper-020",
+          "title": "GaussianCube: Structuring Gaussian Splatting using Optimal Transport for 3D Generative Modeling",
+          "url": "https://arxiv.org/abs/2403.19655",
+          "publishedAt": "2024-03",
+          "citations": "待核验",
+          "citationCount": 0,
+          "summary": "提出用最优传输将无序高斯映射到规则3D网格，使其可用于3D卷积扩散模型。核心解决高斯无序性导致的生成困难，在ShapeNet和OmniObject3D上训练生成模型。局限是OT映射增加预处理开销，且固定网格分辨率限制细节。",
+          "codeUrl": "https://github.com/GaussianCube/GaussianCube",
+          "categories": [
+            "open_source",
+            "supplemental"
+          ]
+        }
+      ],
+      "paperRelations": [
+        {
+          "sourceId": "paper-002",
+          "targetId": "paper-006",
+          "relation": "uses_baseline",
+          "evidence": "TRELLIS 论文将 Point-E 作为 text-to-3D 的重要 baseline 进行比较"
+        },
+        {
+          "sourceId": "paper-002",
+          "targetId": "paper-007",
+          "relation": "uses_baseline",
+          "evidence": "TRELLIS 将 Shap-E 作为隐式 3D 生成的对比 baseline"
+        },
+        {
+          "sourceId": "paper-002",
+          "targetId": "paper-009",
+          "relation": "extends",
+          "evidence": "TRELLIS 支持 3D Gaussian Splatting 作为输出格式之一，扩展了 3DGS 的应用场景"
+        },
+        {
+          "sourceId": "paper-007",
+          "targetId": "paper-006",
+          "relation": "extends",
+          "evidence": "Shap-E 是 OpenAI 对 Point-E 的升级版本，从点云生成改进为隐式函数生成"
+        },
+        {
+          "sourceId": "paper-008",
+          "targetId": "paper-002",
+          "relation": "inspires",
+          "evidence": "DreamFusion 提出的 SDS 技术启发了后续 text-to-3D 工作，TRELLIS 采用了不同的 rectified flow 路线但受其影响；待核验"
+        },
+        {
+          "sourceId": "paper-011",
+          "targetId": "paper-009",
+          "relation": "extends",
+          "evidence": "LGM 基于 3D Gaussian Splatting 表示，将其引入大规模多视角生成场景"
+        },
+        {
+          "sourceId": "paper-011",
+          "targetId": "paper-002",
+          "relation": "compares_with",
+          "evidence": "LGM 和 TRELLIS 都支持 Gaussian 表示的生成，但 TRELLIS 额外支持 mesh 和 radiance field；待核验具体对比实验"
+        },
+        {
+          "sourceId": "paper-012",
+          "targetId": "paper-002",
+          "relation": "compares_with",
+          "evidence": "InstantMesh 和 TRELLIS 都实现 image-to-3D mesh 生成，采用不同技术路线（LRM vs SLAT）"
+        },
+        {
+          "sourceId": "paper-013",
+          "targetId": "paper-009",
+          "relation": "extends",
+          "evidence": "DreamGaussian 是早期将 3DGS 引入生成任务的代表工作"
+        },
+        {
+          "sourceId": "paper-013",
+          "targetId": "paper-008",
+          "relation": "extends",
+          "evidence": "DreamGaussian 继承 DreamFusion 的优化思路，改用 3DGS 替代 NeRF"
+        },
+        {
+          "sourceId": "paper-003",
+          "targetId": "paper-004",
+          "relation": "inspires",
+          "evidence": "Trellis Networks 的序列建模思想可能启发了视频生成中的 trellis 时序结构；待核验"
+        },
+        {
+          "sourceId": "paper-016",
+          "targetId": "paper-002",
+          "relation": "compares_with",
+          "evidence": "MeshAnything 和 TRELLIS 都关注高质量 mesh 生成，但采用自回归 vs 扩散方法"
+        },
+        {
+          "sourceId": "paper-017",
+          "targetId": "paper-002",
+          "relation": "compares_with",
+          "evidence": "Direct3D 和 TRELLIS 都采用 3D latent diffusion，但表示方法不同（triplane vs SLAT）"
+        },
+        {
+          "sourceId": "paper-020",
+          "targetId": "paper-009",
+          "relation": "extends",
+          "evidence": "GaussianCube 解决 3DGS 无序性问题，使其可用于规则化生成模型"
+        },
+        {
+          "sourceId": "paper-019",
+          "targetId": "paper-011",
+          "relation": "compares_with",
+          "evidence": "GRM 和 LGM 都采用大规模 Transformer 直接回归 Gaussian 参数，共享 benchmark"
+        }
+      ],
+      "comparisonRows": [
+        {
+          "axis": "方法路线",
+          "latest": "TRELLIS 采用结构化 3D 隐变量（SLAT）+ rectified flow transformers；LGM/GRM 采用大规模 Transformer 直接回归；InstantMesh 结合多视图扩散和 LRM",
+          "topCited": "Point-E/Shap-E 采用两阶段 diffusion；DreamFusion 首创 SDS 优化范式；3DGS 提出高效 Gaussian 表示",
+          "openSource": "大部分 3D 生成工作提供完整代码，包括 TRELLIS、LGM、InstantMesh、3DGS 等",
+          "takeaway": "统一表示（如 SLAT）是当前趋势，可减少多格式输出的适配成本"
+        },
+        {
+          "axis": "训练数据",
+          "latest": "主要使用 Objaverse/Objaverse-XL（百万级 3D 资产）；部分使用 OmniObject3D",
+          "topCited": "Point-E/Shap-E 在内部数据集训练；DreamFusion 利用 2D 扩散模型零样本迁移",
+          "openSource": "多数方法使用开源数据集，Objaverse 为主流",
+          "takeaway": "Objaverse 已成为事实标准，但数据质量参差不齐可能限制生成效果"
+        },
+        {
+          "axis": "benchmark",
+          "latest": "GSO、OmniObject3D、Objaverse 子集用于定量评测；用户研究用于主观质量",
+          "topCited": "早期工作多用 ShapeNet；DreamFusion 无标准定量 benchmark",
+          "openSource": "GSO 因高质量扫描成为常用测试集",
+          "takeaway": "缺乏统一的 text-to-3D benchmark，不同工作评测设置差异大"
+        },
+        {
+          "axis": "工程可复现性",
+          "latest": "TRELLIS、LGM、InstantMesh 提供完整训练/推理代码和预训练权重",
+          "topCited": "DreamFusion 官方未开源但有多个第三方实现；Point-E/Shap-E 完全开源",
+          "openSource": "3DGS 开源生态活跃，衍生工具丰富",
+          "takeaway": "复现主流方法门槛低，可快速搭建实验 baseline"
+        },
+        {
+          "axis": "主要瓶颈",
+          "latest": "复杂拓扑/薄结构生成质量有限；大规模训练资源需求高；多视图扩散误差累积",
+          "topCited": "SDS 优化慢（小时级）且有 Janus 问题；点云/triplane 表示细节有限",
+          "openSource": "Gaussian 转 mesh 需额外处理；mesh 面数限制复杂几何",
+          "takeaway": "统一高质量网格输出仍是关键挑战"
+        },
+        {
+          "axis": "输出格式灵活性",
+          "latest": "TRELLIS 支持 NeRF/3DGS/Mesh 三种格式统一输出；其他方法多为单一格式",
+          "topCited": "Point-E 仅点云；Shap-E 隐式函数需后处理；3DGS 需转换工具",
+          "openSource": "InstantMesh 直接输出 mesh；DreamGaussian 支持 Gaussian+mesh",
+          "takeaway": "多格式统一输出是 TRELLIS 的独特优势，值得关注"
+        },
+        {
+          "axis": "生成速度",
+          "latest": "前馈方法（LGM/GRM）达到亚秒级；TRELLIS 秒级；InstantMesh 10 秒级",
+          "topCited": "DreamFusion 需数小时优化；Point-E/Shap-E 分钟级",
+          "openSource": "3DGS 训练需数十分钟，但推理实时",
+          "takeaway": "速度已显著提升，实时交互式生成成为可能"
+        }
+      ],
+      "report": "## Trellis 相关工作现状报告\n\n### 主流技术路线\n当前 3D 生成领域存在三条主流路线：\n1. **多视图扩散+重建**：先用 2D 扩散模型生成多视角图像，再用大型重建模型（LRM）或 3DGS 拟合 3D 表示（InstantMesh、LGM、GRM）\n2. **3D 原生扩散**：直接在 3D latent 空间训练扩散模型（TRELLIS 的 SLAT、Direct3D 的 triplane、LN3Diff 的神经场）\n3. **优化式生成**：利用 2D 扩散先验优化 3D 表示（DreamFusion 的 SDS、DreamGaussian）\n\nTRELLIS 采用第二条路线，其结构化 3D 隐变量（SLAT）统一表示多种输出格式是主要创新点。\n\n### 关键瓶颈\n1. **拓扑复杂度**：薄结构、镂空、高频细节生成仍困难\n2. **多视图一致性**：两阶段方法受多视图扩散误差累积影响\n3. **Mesh 质量**：从隐式表示/Gaussian 提取干净 mesh 仍需改进\n4. **训练资源**：大规模 3D 数据集训练需要大量 GPU 资源\n5. **评测标准**：缺乏统一 benchmark，难以公平对比\n\n### 常用 Benchmark\n- **GSO (Google Scanned Objects)**：高质量扫描物体，常用于定量测试\n- **OmniObject3D**：多样性高，覆盖日常物体\n- **Objaverse/Objaverse-XL**：训练集主流，测试时取子集\n- **ShapeNet**：早期常用，现已相对过时\n\n### 可复现资源\n- **TRELLIS**：https://github.com/microsoft/TRELLIS （完整代码+权重）\n- **LGM**：https://github.com/3DTopia/LGM\n- **InstantMesh**：https://github.com/TencentARC/InstantMesh\n- **3DGS**：https://github.com/graphdeco-inria/gaussian-splatting\n- **Point-E/Shap-E**：OpenAI 官方仓库\n\n### 未解决问题\n1. 如何在保持生成速度的同时提升细节保真度？\n2. 如何生成拓扑清晰、可编辑的艺术家级 mesh？\n3. 如何统一处理 text-to-3D 和 image-to-3D 的评测标准？\n4. 如何将 TRELLIS 的 SLAT 表示与下游任务（如动画、物理模拟）更好结合？",
+      "ideas": [
+        {
+          "id": "planner-idea-001",
+          "title": "SLAT 表示的拓扑感知增强",
+          "rationale": "TRELLIS 的 SLAT 使用稀疏体素局部隐变量，但对复杂拓扑（如镂空结构）生成效果有限。可引入拓扑先验（如 Betti 数约束）或多尺度体素结构，在训练时显式监督拓扑正确性。这能解决当前生成方法普遍存在的拓扑问题。",
+          "firstExperiment": "在 Objaverse 子集中筛选具有复杂拓扑的物体（如椅子、篮子），对比 TRELLIS 原版与加入拓扑损失后的生成结果，定量评估拓扑保真度（孔洞数、连通性）"
+        },
+        {
+          "id": "planner-idea-002",
+          "title": "SLAT + MeshAnything 的两阶段艺术家级 Mesh 生成",
+          "rationale": "TRELLIS 输出 mesh 仍依赖 marching cubes 后处理，拓扑混乱不适合下游编辑。MeshAnything 的自回归 Transformer 可生成低面数清晰拓扑 mesh。将 TRELLIS 生成的 SLAT 作为条件输入 MeshAnything，实现端到端高质量 mesh 生成。",
+          "firstExperiment": "用 TRELLIS 生成的 3DGS/NeRF 渲染多视角图像，作为 MeshAnything 输入，评估输出 mesh 的面数、拓扑质量和几何保真度"
+        },
+        {
+          "id": "planner-idea-003",
+          "title": "统一 3D 生成 Benchmark 构建",
+          "rationale": "当前 text/image-to-3D 缺乏公认 benchmark，各工作评测设置不一致。可基于 GSO 和 OmniObject3D 构建标准化测试集和评测协议，包含几何精度、纹理质量、拓扑正确性、用户偏好等多维指标，并提供开源评测工具。",
+          "firstExperiment": "整理 10 篇代表性 3D 生成论文的评测设置，归纳差异点，设计涵盖主要维度的统一评测脚本，在 TRELLIS、LGM、InstantMesh 上运行对比"
+        },
+        {
+          "id": "planner-idea-004",
+          "title": "SLAT 的视频扩展：时序结构化隐变量",
+          "rationale": "TRELLIS 的 SLAT 目前仅用于静态 3D 生成。Trellis Networks（paper-003）和 trellis 时序建模（paper-004）表明 trellis 结构适合序列数据。可将 SLAT 扩展为 4D（时空）隐变量，支持 4D 内容（动态场景/视频）生成。",
+          "firstExperiment": "在小规模 4D 数据集（如 D-NeRF）上训练时序 SLAT VAE，验证其能否重建简单动态场景"
+        }
+      ],
+      "chatMessages": [
+        {
+          "id": "planner-chat-001",
+          "role": "assistant",
+          "content": "我已经完成 TRELLIS 相关工作的收集、关系梳理、比较分析和初步 idea 生成。\n\n**关键发现：**\n1. TRELLIS 的核心创新是 SLAT（结构化 3D 隐变量），统一支持 NeRF/3DGS/Mesh 三种输出格式\n2. 论文关系上，TRELLIS 以 Point-E、Shap-E 为 baseline，与 LGM、InstantMesh 在 image-to-3D 上竞争\n3. 主要瓶颈是复杂拓扑生成和 mesh 质量\n4. 开源生态完善，复现门槛低\n\n**建议下一步：**\n- 若关注工程落地：重点复现 TRELLIS + InstantMesh 对比实验\n- 若关注学术创新：探索 SLAT 的拓扑增强或时序扩展方向",
+          "createdAt": "2026-05-14T03:46:39.692Z"
+        }
+      ]
+    },
+    "nodes": [
+      {
+        "id": "planner",
+        "label": "Planner",
+        "agent": "Planner Agent",
+        "status": "done",
+        "summary": "完成 Trellis/Trelli2 相关视频生成领域的文献调研，识别主流技术路线、关键瓶颈和开源资源",
+        "input": "trelli2 相关的工作",
+        "output": "已收集 5 篇种子论文、现状报告和 3 个可行研究方向",
+        "artifact": "planner-report-v1"
+      },
+      {
+        "id": "idea",
+        "label": "Idea",
+        "agent": "Idea Agent",
+        "status": "done",
+        "summary": "已选择 SLAT 引导的多视图一致 3D 生成。",
+        "input": "planner 现状报告与候选 ideas",
+        "output": "将 TRELLIS 的 SLAT 编码器作为 3D 结构先验注入多视图扩散模型，可在单图输入下生成几何一致的多视角图像，并提升后续 3D 重建的拓扑正确性",
+        "artifact": "selected:idea-004"
+      },
+      {
+        "id": "coding",
+        "label": "Coding",
+        "agent": "Coding Agent",
+        "status": "pending",
+        "summary": "待选定 idea 后设计代码实现计划",
+        "input": "选定的 idea 方法草图",
+        "output": "待输出。",
+        "artifact": "pending"
+      },
+      {
+        "id": "experiment",
+        "label": "Experiment",
+        "agent": "Experiment Agent",
+        "status": "pending",
+        "summary": "待代码就绪后执行实验",
+        "input": "代码与实验配置",
+        "output": "待输出。",
+        "artifact": "pending"
+      },
+      {
+        "id": "evaluation",
+        "label": "Evaluation",
+        "agent": "Evaluation Agent",
+        "status": "pending",
+        "summary": "待实验完成后进行评估分析",
+        "input": "实验结果与指标",
+        "output": "待输出。",
+        "artifact": "pending"
+      },
+      {
+        "id": "paper",
+        "label": "Paper",
+        "agent": "Paper Agent",
+        "status": "pending",
+        "summary": "待评估完成后撰写论文",
+        "input": "所有阶段产物",
+        "output": "待输出。",
+        "artifact": "pending"
+      }
+    ],
+    "ideas": [
+      {
+        "id": "idea-001",
+        "title": "SLAT 表示迁移至视频扩散的轻量化方案",
+        "status": "candidate",
+        "hypothesis": "将 TRELLIS 的结构化隐空间（SLAT）与状态空间模型（SSM/Mamba）结合，可以在保持视频生成质量的前提下，将推理时间降低 30%+",
+        "methodSketch": "1. 使用 TRELLIS 预训练的 SLAT 编码器提取结构化隐向量\n2. 设计 SLAT-Mamba 融合层替代标准时序注意力\n3. 在潜空间扩散框架中集成该模块\n4. 使用知识蒸馏从完整注意力模型迁移",
+        "expectedEvidence": [
+          "UCF-101 帧重建 PSNR ≥ 基线 95%",
+          "推理延迟降低 ≥ 30%",
+          "显存占用降低 ≥ 20%"
+        ]
+      },
+      {
+        "id": "idea-002",
+        "title": "多尺度时空一致性损失用于长视频生成",
+        "status": "candidate",
+        "hypothesis": "在多个时间尺度（帧级、片段级、视频级）上施加对比一致性损失，可显著降低长视频中的语义漂移",
+        "methodSketch": "1. 构建时序特征金字塔\n2. 在每个尺度计算 InfoNCE 损失\n3. 加权融合不同尺度的一致性目标\n4. 与重建损失联合优化",
+        "expectedEvidence": [
+          "16 秒以上视频的 FVD 降低 ≥ 15%",
+          "用户研究一致性评分提升"
+        ]
+      },
+      {
+        "id": "idea-003",
+        "title": "条件控制的解耦与组合生成",
+        "status": "candidate",
+        "hypothesis": "通过模块化条件注入设计，实现任意条件组合的零样本泛化",
+        "methodSketch": "1. 为每种条件模态设计独立的 Adapter 模块\n2. 在扩散过程中通过加性注入融合多条件\n3. 训练时随机 dropout 条件组合\n4. 推理时支持任意条件子集",
+        "expectedEvidence": [
+          "未见条件组合的生成质量保持 ≥ 90% 基线",
+          "支持至少 4 种条件模态组合"
+        ]
+      },
+      {
+        "id": "idea-004",
+        "title": "SLAT 引导的多视图一致 3D 生成",
+        "status": "selected",
+        "hypothesis": "将 TRELLIS 的 SLAT 编码器作为 3D 结构先验注入多视图扩散模型，可在单图输入下生成几何一致的多视角图像，并提升后续 3D 重建的拓扑正确性",
+        "methodSketch": "1. 从单输入图像用 TRELLIS SLAT VAE 编码出稀疏 3D 隐变量\n2. 将 SLAT 特征作为 cross-attention 条件注入多视图扩散模型（如 Zero123++ 架构）\n3. 多视图扩散输出送入 LRM/InstantMesh 进行 3D 重建\n4. 端到端微调或冻结 SLAT encoder 仅训练 adapter",
+        "expectedEvidence": [
+          "GSO 测试集上 CD (Chamfer Distance) 降低 ≥ 10% vs Zero123++",
+          "生成多视图的 LPIPS 一致性提升",
+          "复杂拓扑物体（镂空/薄结构）的成功率可视化对比"
+        ]
+      },
+      {
+        "id": "idea-005",
+        "title": "TRELLIS + MeshAnything 两阶段艺术家级 Mesh 生成",
+        "status": "candidate",
+        "hypothesis": "将 TRELLIS 生成的 SLAT/3DGS 渲染为多视角条件，输入 MeshAnything 的自回归 Transformer，可生成低面数、拓扑干净的可编辑 mesh",
+        "methodSketch": "1. TRELLIS 从 text/image 生成 3DGS 表示\n2. 渲染 6-12 视角 RGB+深度图\n3. 作为条件输入 MeshAnything 生成 < 1000 面 mesh\n4. 评估拓扑质量与下游 UV 展开/绑定可行性",
+        "expectedEvidence": [
+          "输出 mesh 面数 < 1000 且保持几何保真度",
+          "生成 mesh 可直接导入 Blender 进行 UV 展开成功率 ≥ 80%",
+          "与 TRELLIS 原生 marching cubes 输出的拓扑复杂度对比"
+        ]
+      }
+    ],
+    "experiment": {
+      "id": "exp-plan-001",
+      "name": "SLAT-Mamba 视频扩散初步验证",
+      "status": "queued",
+      "codeVersion": "pending-runner",
+      "config": {
+        "max_gpu_hours": 8,
+        "benchmark": "UCF-101 子集（待用户确认）",
+        "model_base": "CogVideoX-2B 或 SVD（待用户选择）",
+        "batch_size": 4,
+        "num_frames": 16,
+        "resolution": "256x256"
+      },
+      "metrics": [],
+      "logs": [
+        "LLM 已生成实验计划，尚未连接真实实验 Runner。",
+        "待核验 TRELLIS SLAT 预训练权重是否公开可用。",
+        "建议首先在小规模数据上验证融合模块的可行性。"
+      ]
+    },
+    "evaluation": {
+      "summary": "实验计划阶段，尚无实际结果可评估。评估将聚焦于三个维度：生成质量（PSNR/FVD）、效率指标（延迟/显存）、定性分析（人工评审）",
+      "improvement": "unknown",
+      "nextActions": [
+        "核验 Trelli2 具体论文或项目信息",
+        "确认实验基线模型（CogVideoX vs SVD）",
+        "准备 UCF-101 数据处理流水线",
+        "设计 SLAT-Mamba 融合模块原型"
+      ],
+      "risks": [
+        "TRELLIS SLAT 可能专为 3D 设计，直接迁移至视频可能需要重新训练",
+        "Mamba 在高分辨率视频上的显存效率待验证",
+        "缺乏 Trelli2 官方技术细节可能导致研究方向偏差"
+      ]
+    },
+    "agentRuns": [
+      {
+        "id": "run-idea-1778738625765",
+        "agent": "Idea Agent",
+        "status": "done",
+        "startedAt": "2026/5/14 14:03:45",
+        "message": "已通过对话更新候选 idea，并选择 SLAT 表示迁移至视频扩散的轻量化方案。",
+        "toolCalls": [
+          "workspace.idea_chat",
+          "workspace.select_idea"
+        ]
+      },
+      {
+        "id": "run-planner-001",
+        "agent": "Planner Agent",
+        "status": "done",
+        "startedAt": "2026-05-14T03:46:39.692Z",
+        "message": "完成 Trelli2/TRELLIS 相关领域调研，输出种子论文列表、现状报告和候选 ideas",
+        "toolCalls": [
+          "llm.plan_research_task",
+          "search.arxiv_query",
+          "search.github_repos"
+        ]
+      }
+    ],
+    "memoryItems": [
+      {
+        "id": "mem-001",
+        "type": "idea",
+        "title": "SLAT + SSM 融合思路",
+        "description": "结构化隐空间与状态空间模型结合用于高效视频生成，可作为后续研究的核心技术路线"
+      },
+      {
+        "id": "mem-002",
+        "type": "idea",
+        "title": "开源视频生成基线",
+        "description": "CogVideoX (THUDM)、SVD (Stability-AI) 提供完整训练/推理代码，适合作为实验基线"
+      },
+      {
+        "id": "mem-003",
+        "type": "idea",
+        "title": "Trelli2 信息待核验",
+        "description": "未在公开数据库找到 Trelli2 正式论文，可能是内部版本或未发表工作，需用户提供更多信息"
+      }
+    ],
+    "paperDraft": {
+      "title": "高效视频扩散生成：基于结构化隐空间与状态空间模型的融合方法",
+      "status": "drafting",
+      "sections": [
+        {
+          "title": "Abstract",
+          "state": "seeded"
+        },
+        {
+          "title": "Introduction",
+          "state": "seeded"
+        },
+        {
+          "title": "Related Work",
+          "state": "needs_evidence"
+        },
+        {
+          "title": "Method",
+          "state": "seeded"
+        },
+        {
+          "title": "Experiments",
+          "state": "needs_evidence"
+        },
+        {
+          "title": "Conclusion",
+          "state": "empty"
+        }
+      ],
+      "latexPreview": "\\documentclass{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amsmath,amssymb,graphicx}\n\\usepackage{hyperref}\n\n\\title{高效视频扩散生成：基于结构化隐空间与状态空间模型的融合方法}\n\\author{待填写}\n\\date{2026}\n\n\\begin{document}\n\\maketitle\n\n\\begin{abstract}\n视频扩散模型在生成质量上取得了显著进展，但高昂的计算成本限制了其实际应用。\n本文探索将结构化隐空间表示（SLAT）与状态空间模型（SSM）相结合，\n旨在保持生成质量的前提下显著降低推理延迟。\n% TODO: 补充实验结果摘要\n\\end{abstract}\n\n\\section{Introduction}\n近年来，扩散模型在图像和视频生成领域取得了突破性进展~\\cite{ho2020ddpm}。\n然而，视频生成面临独特挑战：时序一致性、计算效率和长视频建模。\n\n\\textbf{动机：} TRELLIS 等工作表明结构化隐空间在 3D 生成中能有效编码几何与外观信息。\n我们探索将该思想迁移至视频领域，并结合高效的状态空间建模降低计算开销。\n\n\\textbf{贡献：}\n\\begin{itemize}\n    \\item 提出 SLAT-Mamba 融合架构用于视频扩散生成\n    \\item 设计多尺度时序一致性损失\n    \\item 在标准 benchmark 上验证效率与质量平衡\n\\end{itemize}\n\n\\section{Related Work}\n% TODO: 详细展开视频扩散模型、结构化表示学习、状态空间模型三个方向\n\\paragraph{视频扩散模型} SVD~\\cite{svd2023}、CogVideoX~\\cite{cogvideo2024}...\n\n\\paragraph{结构化隐空间} TRELLIS~\\cite{trellis2024}...\n\n\\paragraph{状态空间模型} Mamba~\\cite{mamba2024}...\n\n\\section{Method}\n\\subsection{问题定义}\n给定条件输入 $c$（文本、首帧等），目标是生成视频序列 $\\mathbf{V} = \\{v_1, ..., v_T\\}$。\n\n\\subsection{SLAT-Mamba 融合模块}\n% TODO: 补充技术细节和公式\n\\begin{equation}\n    z_t = \\text{SLAT-Encoder}(v_t), \\quad h_t = \\text{Mamba}(z_t, h_{t-1})\n\\end{equation}\n\n\\subsection{多尺度一致性损失}\n% TODO: 补充损失函数定义\n\n\\section{Experiments}\n% TODO: 补充实验设置和结果\n\\subsection{实验设置}\n\\paragraph{数据集} UCF-101, Panda-70M 子集\n\\paragraph{基线} CogVideoX-2B, SVD-XT\n\\paragraph{指标} FVD, PSNR, 推理延迟\n\n\\subsection{主实验结果}\n% TODO: 表格占位\n\\begin{table}[h]\n\\centering\n\\caption{与基线方法的对比（待实验补充）}\n\\begin{tabular}{lccc}\n\\hline\n方法 & FVD $\\downarrow$ & 延迟 (s) & 显存 (GB) \\\\\n\\hline\n基线 & - & - & - \\\\\n本文方法 & - & - & - \\\\\n\\hline\n\\end{tabular}\n\\end{table}\n\n\\section{Conclusion}\n% TODO: 实验完成后撰写\n\n\\bibliographystyle{plain}\n\\bibliography{references}\n\n\\end{document}"
+    },
+    "backendLogs": [
+      {
+        "id": "backend-1",
+        "timestamp": "2026/5/14 11:46:39",
+        "elapsedMs": 0,
+        "phase": "request",
+        "status": "success",
+        "message": "Received research goal and assigned task-aa05094d."
+      },
+      {
+        "id": "backend-2",
+        "timestamp": "2026/5/14 11:46:39",
+        "elapsedMs": 0,
+        "phase": "prompt",
+        "status": "success",
+        "message": "Built orchestrator system prompt and workspace JSON schema."
+      },
+      {
+        "id": "backend-3",
+        "timestamp": "2026/5/14 11:46:39",
+        "elapsedMs": 1,
+        "phase": "llm.config",
+        "status": "success",
+        "message": "Model claude-opus-4-5; base URL http://localhost:8313/v1; endpoint order Chat Completions JSON mode -> Chat Completions."
+      },
+      {
+        "id": "backend-4",
+        "timestamp": "2026/5/14 11:46:39",
+        "elapsedMs": 1,
+        "phase": "llm.request",
+        "status": "running",
+        "message": "Calling Chat Completions JSON mode."
+      },
+      {
+        "id": "backend-5",
+        "timestamp": "2026/5/14 11:48:23",
+        "elapsedMs": 103706,
+        "phase": "llm.response",
+        "status": "success",
+        "message": "Chat Completions JSON mode returned 12869 characters after 103.7s."
+      },
+      {
+        "id": "backend-6",
+        "timestamp": "2026/5/14 11:48:23",
+        "elapsedMs": 103707,
+        "phase": "parse",
+        "status": "running",
+        "message": "Parsing LLM output into a JSON object."
+      },
+      {
+        "id": "backend-7",
+        "timestamp": "2026/5/14 11:48:23",
+        "elapsedMs": 103708,
+        "phase": "parse",
+        "status": "success",
+        "message": "Parsed a valid workspace JSON object."
+      },
+      {
+        "id": "backend-8",
+        "timestamp": "2026/5/14 11:48:23",
+        "elapsedMs": 103711,
+        "phase": "normalize",
+        "status": "success",
+        "message": "Normalized 6 graph nodes, 3 ideas, and 1 agent runs."
+      },
+      {
+        "id": "backend-9",
+        "timestamp": "2026/5/14 11:48:23",
+        "elapsedMs": 103712,
+        "phase": "planner.parallel",
+        "status": "running",
+        "message": "Starting 4 parallel paper collection workers."
+      },
+      {
+        "id": "backend-10",
+        "timestamp": "2026/5/14 11:48:23",
+        "elapsedMs": 103712,
+        "phase": "planner.paper.latest",
+        "status": "running",
+        "message": "Collecting Latest papers."
+      },
+      {
+        "id": "backend-11",
+        "timestamp": "2026/5/14 11:48:23",
+        "elapsedMs": 103712,
+        "phase": "planner.paper.latest.llm.config",
+        "status": "success",
+        "message": "Latest papers: Model claude-opus-4-5; base URL http://localhost:8313/v1; endpoint order Chat Completions JSON mode -> Chat Completions."
+      },
+      {
+        "id": "backend-12",
+        "timestamp": "2026/5/14 11:48:23",
+        "elapsedMs": 103713,
+        "phase": "planner.paper.latest.llm.request",
+        "status": "running",
+        "message": "Latest papers: Calling Chat Completions JSON mode."
+      },
+      {
+        "id": "backend-13",
+        "timestamp": "2026/5/14 11:48:23",
+        "elapsedMs": 103716,
+        "phase": "planner.paper.top-cited",
+        "status": "running",
+        "message": "Collecting Top-cited papers."
+      },
+      {
+        "id": "backend-14",
+        "timestamp": "2026/5/14 11:48:23",
+        "elapsedMs": 103717,
+        "phase": "planner.paper.top-cited.llm.config",
+        "status": "success",
+        "message": "Top-cited papers: Model claude-opus-4-5; base URL http://localhost:8313/v1; endpoint order Chat Completions JSON mode -> Chat Completions."
+      },
+      {
+        "id": "backend-15",
+        "timestamp": "2026/5/14 11:48:23",
+        "elapsedMs": 103717,
+        "phase": "planner.paper.top-cited.llm.request",
+        "status": "running",
+        "message": "Top-cited papers: Calling Chat Completions JSON mode."
+      },
+      {
+        "id": "backend-16",
+        "timestamp": "2026/5/14 11:48:23",
+        "elapsedMs": 103718,
+        "phase": "planner.paper.open-source",
+        "status": "running",
+        "message": "Collecting Open-source papers."
+      },
+      {
+        "id": "backend-17",
+        "timestamp": "2026/5/14 11:48:23",
+        "elapsedMs": 103718,
+        "phase": "planner.paper.open-source.llm.config",
+        "status": "success",
+        "message": "Open-source papers: Model claude-opus-4-5; base URL http://localhost:8313/v1; endpoint order Chat Completions JSON mode -> Chat Completions."
+      },
+      {
+        "id": "backend-18",
+        "timestamp": "2026/5/14 11:48:23",
+        "elapsedMs": 103719,
+        "phase": "planner.paper.open-source.llm.request",
+        "status": "running",
+        "message": "Open-source papers: Calling Chat Completions JSON mode."
+      },
+      {
+        "id": "backend-19",
+        "timestamp": "2026/5/14 11:48:23",
+        "elapsedMs": 103719,
+        "phase": "planner.paper.supplemental",
+        "status": "running",
+        "message": "Collecting Supplemental papers."
+      },
+      {
+        "id": "backend-20",
+        "timestamp": "2026/5/14 11:48:23",
+        "elapsedMs": 103720,
+        "phase": "planner.paper.supplemental.llm.config",
+        "status": "success",
+        "message": "Supplemental papers: Model claude-opus-4-5; base URL http://localhost:8313/v1; endpoint order Chat Completions JSON mode -> Chat Completions."
+      },
+      {
+        "id": "backend-21",
+        "timestamp": "2026/5/14 11:48:23",
+        "elapsedMs": 103720,
+        "phase": "planner.paper.supplemental.llm.request",
+        "status": "running",
+        "message": "Supplemental papers: Calling Chat Completions JSON mode."
+      },
+      {
+        "id": "backend-22",
+        "timestamp": "2026/5/14 11:48:42",
+        "elapsedMs": 122726,
+        "phase": "planner.paper.latest.llm.response",
+        "status": "success",
+        "message": "Latest papers: Chat Completions JSON mode returned 2363 characters after 19.0s."
+      },
+      {
+        "id": "backend-23",
+        "timestamp": "2026/5/14 11:48:47",
+        "elapsedMs": 127641,
+        "phase": "planner.paper.top-cited.llm.response",
+        "status": "success",
+        "message": "Top-cited papers: Chat Completions JSON mode returned 2903 characters after 23.9s."
+      },
+      {
+        "id": "backend-24",
+        "timestamp": "2026/5/14 11:48:47",
+        "elapsedMs": 128233,
+        "phase": "planner.paper.open-source.llm.response",
+        "status": "success",
+        "message": "Open-source papers: Chat Completions JSON mode returned 3051 characters after 24.5s."
+      },
+      {
+        "id": "backend-25",
+        "timestamp": "2026/5/14 11:48:56",
+        "elapsedMs": 136856,
+        "phase": "planner.paper.supplemental.llm.response",
+        "status": "success",
+        "message": "Supplemental papers: Chat Completions JSON mode returned 4343 characters after 33.1s."
+      },
+      {
+        "id": "backend-26",
+        "timestamp": "2026/5/14 11:48:56",
+        "elapsedMs": 136857,
+        "phase": "planner.parallel",
+        "status": "success",
+        "message": "Latest papers returned 5 papers."
+      },
+      {
+        "id": "backend-27",
+        "timestamp": "2026/5/14 11:48:56",
+        "elapsedMs": 136857,
+        "phase": "planner.parallel",
+        "status": "success",
+        "message": "Top-cited papers returned 5 papers."
+      },
+      {
+        "id": "backend-28",
+        "timestamp": "2026/5/14 11:48:56",
+        "elapsedMs": 136857,
+        "phase": "planner.parallel",
+        "status": "success",
+        "message": "Open-source papers returned 5 papers."
+      },
+      {
+        "id": "backend-29",
+        "timestamp": "2026/5/14 11:48:56",
+        "elapsedMs": 136857,
+        "phase": "planner.parallel",
+        "status": "success",
+        "message": "Supplemental papers returned 8 papers."
+      },
+      {
+        "id": "backend-30",
+        "timestamp": "2026/5/14 11:48:56",
+        "elapsedMs": 136857,
+        "phase": "planner.parallel",
+        "status": "success",
+        "message": "Merged 20 unique planner papers from parallel workers."
+      },
+      {
+        "id": "backend-31",
+        "timestamp": "2026/5/14 11:48:56",
+        "elapsedMs": 136857,
+        "phase": "planner.synthesis",
+        "status": "running",
+        "message": "Synthesizing paper relations, comparison rows, report, and ideas."
+      },
+      {
+        "id": "backend-32",
+        "timestamp": "2026/5/14 11:48:56",
+        "elapsedMs": 136858,
+        "phase": "planner.synthesis.llm.config",
+        "status": "success",
+        "message": "Planner synthesis: Model claude-opus-4-5; base URL http://localhost:8313/v1; endpoint order Chat Completions JSON mode -> Chat Completions."
+      },
+      {
+        "id": "backend-33",
+        "timestamp": "2026/5/14 11:48:56",
+        "elapsedMs": 136858,
+        "phase": "planner.synthesis.llm.request",
+        "status": "running",
+        "message": "Planner synthesis: Calling Chat Completions JSON mode."
+      },
+      {
+        "id": "backend-34",
+        "timestamp": "2026/5/14 11:50:10",
+        "elapsedMs": 211192,
+        "phase": "planner.synthesis.llm.response",
+        "status": "success",
+        "message": "Planner synthesis: Chat Completions JSON mode returned 7826 characters after 74.3s."
+      }
+    ],
+    "ideaChatMessages": [
+      {
+        "id": "idea-chat-user-098021fd",
+        "role": "user",
+        "content": "我的想法是增加 multi-view generation 3d 的能力 based on trellis",
+        "createdAt": "2026/5/14 14:03:20"
+      },
+      {
+        "id": "idea-chat-assistant-9add0dc6",
+        "role": "assistant",
+        "content": "明白，我把基于 TRELLIS 的多视图 3D 生成能力作为新 idea 加入候选列表。核心思路是利用 SLAT 的结构化隐空间来增强多视图扩散的 3D 一致性，同时保留原有的 idea-001 作为选中项。新增 idea-004 聚焦于将 TRELLIS 的 SLAT 编码器与多视图扩散模型结合，实现更高质量的 image-to-3D 生成。",
+        "createdAt": "2026/5/14 14:03:20"
+      }
+    ]
+  }
+}

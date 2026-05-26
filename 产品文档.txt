@@ -1,0 +1,592 @@
+
+
+                ┌──────────────┐
+                │  User Goal   │
+                │ "CVPR paper" │
+                └──────┬───────┘
+                       ↓
+              ┌─────────────────┐
+              │  Planner Agent  │
+              └──────┬──────────┘
+                     ↓
+   ┌────────────────────────────────────┐
+   │            Task Graph              │
+   └────────────────────────────────────┘
+     ↓        ↓         ↓         ↓
+ Topic     Research   Coding   Writing
+ Agent      Agent      Agent     Agent
+     ↓        ↓         ↓         ↓
+        ┌──────── Shared Memory ────────┐
+        │ papers / ideas / logs / code  │
+        └───────────────────────────────┘
+                     ↓
+              Experiment Agent
+                     ↓
+              Evaluation Agent
+                     ↓
+               Feedback Loop
+
+🧭 1）Topic 选择 Agent
+功能
+●  分析趋势（CVPR / NeurIPS） 
+●  找 research gap 
+●  提出 candidate topics 
+工具
+●  arXiv API 
+●  Semantic Scholar 
+输出
+{
+  "topic": "Diffusion for 3D reconstruction",
+  "novelty": "...",
+  "related_work": [...]
+}
+
+
+📚 2）Research / Idea Agent
+功能
+●  阅读论文（PDF parsing） 
+●  总结方法 
+●  找不足（limitation mining） 
+●  生成 idea 
+可以做的高级能力
+●  自动生成： 
+  ○  problem formulation 
+  ○  method sketch 
+  ○  pseudo-code 
+关键技术
+●  RAG（论文库） 
+●  多轮 reasoning（Tree-of-Thought） 
+
+💻 3）Coding / Implementation Agent
+功能
+●  生成 PyTorch 代码 
+●  修改现有 repo 
+●  自动 debug 
+必须接入
+●  Git repo 
+●  Linux shell 
+●  GPU runner 
+推荐工具
+●  Docker + SSH 
+●  Jupyter kernel 
+●  Code execution sandbox 
+
+🧪 4）Experiment Agent（核心）
+这是最关键的 agent
+功能
+●  自动跑实验 
+●  管理配置（hyperparameters） 
+●  调参（grid / Bayesian） 
+技术选型
+●  Hydra / OmegaConf 
+●  Weights & Biases / MLflow 
+输出
+{
+  "exp_id": "...",
+  "metrics": {
+    "acc": 0.87
+  },
+  "config": {...}
+}
+
+📊 5）Evaluation Agent
+功能
+●  分析实验结果 
+●  找规律 
+●  判断是否有效 
+能力升级
+●  自动判断： 
+  ○  是否比 SOTA 好 
+  ○  是否需要更多 ablation 
+
+🔁 6）Iteration / Self-Improve Agent
+功能
+●  根据实验结果优化 idea 
+例如：
+“效果不好 → backbone 不行 → 换 ViT”
+
+✍️ 7）Paper Writing Agent
+功能
+●  生成论文（LaTeX） 
+●  自动画图 / 表格 
+●  grammar check 
+输出结构
+- abstract
+- intro
+- related work
+- method
+- experiment
+工具
+●  LaTeX template（CVPR） 
+●  matplotlib / seaborn 
+●  table generator 
+
+🧠 四、Memory 设计（非常关键）
+必须分层：
+1️⃣ Paper Memory
+●  向量数据库（FAISS / Weaviate） 
+2️⃣ Experiment Memory
+●  config + result + logs 
+3️⃣ Idea Memory
+●  每次 idea evolution 
+
+🔄 五、Agent Loop（核心闭环）
+while not accepted:
+    idea = generate()
+    code = implement()
+    result = experiment()
+    insight = analyze()
+    idea = refine()
+
+🧰 六、技术栈推荐（实用）
+🧠 LLM orchestration
+●  LangGraph（强烈推荐） 
+●  AutoGen（多 agent） 
+📚 RAG
+●  LlamaIndex 
+●  Haystack 
+🧪 实验管理
+●  MLflow 
+●  Weights & Biases 
+💻 执行环境
+●  Docker + Kubernetes（如果规模大） 
+
+🚀 七、最小可行版本（MVP）
+建议你不要一开始做全系统，而是：
+✅ 第一阶段（最重要）
+👉 Idea → Code → Experiment loop
+实现：
+●  一个 agent 生成 idea 
+●  一个 agent 写代码 
+●  自动跑实验 
+●  自动分析结果 
+
+✅ 第二阶段
+加入：
+●  paper reading agent 
+●  RAG 
+
+✅ 第三阶段
+加入：
+●  paper writing agent 
+
+⚠️ 八、现实建议（很重要）
+我得给你一个稍微“泼冷水但有用”的提醒：
+👉 完全自动发顶会论文，目前仍然不现实
+但👇是现实可达的：
+✅ 能做到的
+●  提升 3–10x research efficiency 
+●  自动 baseline / ablation 
+●  自动整理论文 
+❌ 很难完全自动
+●  真正 novel idea（尤其 CVPR level） 
+●  审稿人博弈 
+
+💡 九、可以加的 killer feature
+这些会让你的系统非常强：
+🔥 1）Reviewer Simulator
+模拟审稿意见
+🔥 2）SOTA Tracker
+自动跟踪最新论文
+🔥 3）Failure Mining
+专门分析失败实验
+
+
+
+
+Agentic Research System 开发文档（MVP → 完整系统）
+1. 项目目标
+构建一个面向计算机科研（CVPR / NeurIPS 等顶会）的 Agentic Research System，用于自动化并加速科研流程，包括：
+● Topic 选择
+● 文献调研与 Idea 生成
+● 算法实现与实验
+● 实验分析与迭代
+● 论文撰写（LaTeX）
+目标不是完全自动发论文，而是：
+提升 research efficiency（3–10x）
+
+2. 系统总体架构
+系统采用多 Agent + Task Graph + Shared Memory 架构：
+User Goal → Planner Agent → Task Graph → Specialized Agents → Memory → Feedback Loop
+模块划分：
+1. Planner Agent（任务分解）
+2. Topic Agent（选题）
+3. Research Agent（文献 & idea）
+4. Coding Agent（实现）
+5. Experiment Agent（实验执行）
+6. Evaluation Agent（结果分析）
+7. Iteration Agent（优化迭代）
+8. Writing Agent（论文生成）
+
+3. 核心模块设计
+3.1 Planner Agent
+功能：
+● 接收用户目标（如：发 CVPR）
+● 拆解任务为 DAG（Task Graph）
+输入：
+● 用户目标
+输出：
+● Task Graph（JSON）
+示例：
+{
+"tasks": [
+"topic_selection",
+"literature_review",
+"idea_generation",
+"implementation",
+"experiment",
+"analysis",
+"paper_writing"
+]
+}
+
+3.2 Topic Agent
+功能：
+● 分析 research trend
+● 提取 research gap
+● 输出候选方向
+输入：
+● 论文数据库（RAG）
+输出：
+{
+"topic": "...",
+"motivation": "...",
+"novelty": "...",
+"related_work": [...]
+}
+
+3.3 Research / Idea Agent
+功能：
+● 阅读论文（PDF parsing）
+● 总结方法
+● 提出创新点
+关键能力：
+● limitation mining
+● idea generation（multi-step reasoning）
+输出：
+{
+"idea": "...",
+"method": "...",
+"pseudo_code": "..."
+}
+
+3.4 Coding Agent
+功能：
+● 生成 PyTorch 代码
+● 修改现有 repo
+● 自动 debug
+依赖：
+● Git
+● Python execution environment
+● GPU
+输出：
+● 可运行代码
+● config 文件
+
+3.5 Experiment Agent（核心）
+功能：
+● 自动运行实验
+● 管理参数
+● 调参（grid / Bayesian）
+输入：
+● code
+● config
+输出：
+{
+"exp_id": "...",
+"metrics": {
+"accuracy": 0.XX
+},
+"config": {...},
+"logs": "..."
+}
+推荐工具：
+● Hydra / OmegaConf
+● MLflow / W&B
+
+3.6 Evaluation Agent
+功能：
+● 分析实验结果
+● 判断是否优于 baseline
+● 提取规律
+输出：
+{
+"insight": "...",
+"improvement": true/false,
+"next_action": "..."
+}
+
+3.7 Iteration Agent
+功能：
+● 基于结果优化 idea
+策略：
+● 模型结构修改
+● loss 调整
+● 数据增强
+
+3.8 Writing Agent
+功能：
+● 自动生成论文（LaTeX）
+● 生成图表（matplotlib）
+● 生成表格
+输出结构：
+● abstract
+● introduction
+● related work
+● method
+● experiment
+● conclusion
+
+4. Memory 系统设计
+4.1 Paper Memory
+● 类型：向量数据库
+● 内容：论文 embedding + metadata
+技术：
+● FAISS / Weaviate
+
+4.2 Experiment Memory
+● 存储：
+  ○ config
+  ○ metrics
+  ○ logs
+
+4.3 Idea Memory
+● 每次 idea 的演化记录
+
+5. Agent Loop（闭环）
+核心循环：
+while not converged:
+idea = generate()
+code = implement()
+result = experiment()
+insight = analyze()
+idea = refine()
+
+6. 技术选型
+6.1 LLM Orchestration
+● LangGraph（推荐）
+● AutoGen
+
+6.2 RAG 系统
+● LlamaIndex
+● Haystack
+
+6.3 实验管理
+● MLflow
+● Weights & Biases
+
+6.4 执行环境
+● Linux + GPU
+● Docker（隔离环境）
+● SSH（远程执行）
+
+7. MVP 实现方案（强烈建议）
+Phase 1（最关键）
+实现：
+● Idea Agent
+● Coding Agent
+● Experiment Agent
+● Evaluation Agent
+形成最小闭环：
+Idea → Code → Run → Analyze
+
+Phase 2
+增加：
+● Research Agent（论文阅读）
+● RAG 系统
+
+Phase 3
+增加：
+● Writing Agent（论文生成）
+
+8. 系统接口设计（简化）
+8.1 Agent 接口
+def run(input: dict) -> dict
+
+8.2 Memory 接口
+class Memory:
+def store(key, value)
+def retrieve(query)
+
+8.3 Experiment Runner
+def run_experiment(config):
+return metrics
+
+9. 扩展功能（高级）
+9.1 Reviewer Simulator
+● 自动生成审稿意见
+9.2 SOTA Tracker
+● 自动更新最新论文
+9.3 Failure Analysis
+● 分析失败实验原因
+
+10. 风险与限制
+可实现：
+● 自动 baseline
+● 自动调参
+● 自动论文初稿
+难点：
+● 真正创新 idea
+● 顶会级 novelty
+
+11. 未来方向
+● Self-improving agent
+● Multi-agent debate（idea 竞争）
+● 自动 benchmark 构建
+
+12. 总结
+该系统本质是：
+一个“科研自动化闭环系统”，通过多 Agent 协作，实现：
+Idea → Experiment → Insight → Paper
+核心成功关键在于：
+1. 实验自动化（Experiment Agent）
+2. 反馈闭环（Iteration）
+3. 高质量 memory（RAG + logs）
+建议优先实现 MVP，再逐步扩展。
+
+
+前端核心目标
+前端不是“UI好看”，而是三件事：
+1️⃣ 可观察（Observability）
+●  agent 执行过程 
+●  task graph 
+●  logs 
+2️⃣ 可交互（Control）
+●  手动修改 idea 
+●  中断实验 
+●  调整参数 
+3️⃣ 可管理（Management）
+●  实验对比 
+●  论文版本 
+●  idea 历史 
+
+🧩 三、前端功能模块设计
+
+1️⃣ Dashboard（总览）
+展示：
+●  当前任务（如：CVPR paper） 
+●  运行状态 
+●  最新实验结果 
+
+2️⃣ Task Graph 可视化（非常重要）
+类似：
+Topic → Research → Idea → Code → Experiment → Paper
+功能：
+●  展示 DAG 
+●  每个节点状态： 
+  ○  pending / running / done / failed 
+👉 这是 agent 系统的“中枢 UI”
+
+3️⃣ Agent Console（调试神器）
+类似 terminal + Chat：
+●  每个 agent 一个 panel 
+●  显示： 
+  ○  输入 
+  ○  输出 
+  ○  推理过程（可选） 
+
+4️⃣ Experiment 面板
+展示：
+●  实验列表 
+●  metrics 曲线 
+●  参数对比 
+类似：
+●  accuracy vs epoch 
+●  不同 config 对比 
+👉 类似 W&B UI（但更轻量）
+
+5️⃣ Idea Workspace（很关键）
+展示：
+●  当前 idea 
+●  历史版本 
+●  改动 diff 
+支持：
+●  手动编辑 idea 
+●  “让 agent 再优化一次” 
+
+6️⃣ Paper Editor（LaTeX）
+功能：
+●  实时预览 
+●  自动填充： 
+  ○  表格 
+  ○  图 
+
+7️⃣ Memory Explorer
+展示：
+●  已读论文 
+●  embedding 检索结果 
+●  experiment logs 
+
+🏗️ 四、前后端架构
+推荐架构👇
+Frontend (React)
+      ↓
+Backend API (FastAPI)
+      ↓
+Agent Orchestrator (LangGraph)
+      ↓
+Tools
+ ├── LLM
+ ├── GPU Runner
+ ├── Vector DB
+ └── Experiment System
+
+🔌 五、核心接口设计
+
+1️⃣ 启动任务
+POST /run
+{
+  "goal": "Generate a CVPR paper on 3D reconstruction"
+}
+
+2️⃣ 获取任务状态
+GET /status/{task_id}
+
+3️⃣ 获取 Task Graph
+GET /graph/{task_id}
+
+4️⃣ 获取实验结果
+GET /experiments
+
+5️⃣ 人工干预
+POST /intervene
+{
+  "node": "idea",
+  "action": "modify",
+  "content": "new idea..."
+}
+
+⚙️ 六、前端技术选型（推荐）
+
+✅ 框架
+●  React + Next.js（首选） 
+●  或 Vue（如果你更熟） 
+
+✅ UI库
+●  Tailwind CSS（简单高效） 
+●  shadcn/ui（现代感强） 
+
+✅ 图可视化
+●  React Flow（强烈推荐，用于 Task Graph） 
+
+✅ 图表
+●  Recharts / ECharts 
+
+✅ 实时通信
+●  WebSocket（用于 agent streaming）
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

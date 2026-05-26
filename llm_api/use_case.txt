@@ -1,0 +1,99 @@
+ghc-api
+C:\Python310\lib\site-packages\requests\__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (7.1.0)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+{'address': 'localhost', 'port': 8313, 'debug': False, 'account_type': 'individual', 'vscode_version': '1.93.0', 'api_version': '2025-04-01', 'copilot_version': '0.26.7', 'model_mappings': {'exact': {'opus': 'claude-opus-4.6', 'sonnet': 'claude-sonnet-4.5', 'haiku': 'claude-haiku-4.5', 'claude-opus-4-6': 'claude-opus-4.6', 'claude-opus-4-5': 'claude-opus-4.5', 'claude-haiku-4-5': 'claude-haiku-4.5'}, 'prefix': {'claude-sonnet-4-': 'claude-sonnet-4', 'claude-haiku-4.5-': 'claude-haiku-4.5', 'claude-opus-4.5-': 'claude-opus-4.5', 'claude-haiku-4-5-': 'claude-haiku-4.5', 'claude-opus-4-5-': 'claude-opus-4.5', 'claude-opus-4-6-': 'claude-opus-4.6', 'claude-opus-4.6-': 'claude-opus-4.6'}}, 'system_prompt_remove': [], 'tool_result_suffix_remove': [], 'system_prompt_add': [], 'max_connection_retries': 3, 'auto_remove_encrypted_content_on_parse_error': False, 'save_request_to_file': False}
+Loaded configuration from: C:\Users\hongyuanzhu\AppData\Roaming/ghc-api\config.yaml
+[Config Sync] Local config differs from synced config:
+  - codex: local=C:\Users\hongyuanzhu\.codex\config.toml sync=C:\Users\hongyuanzhu\OneDrive - Microsoft\.ghc-api\configSync\codex_config.toml
+Loaded GitHub token from C:\Users\hongyuanzhu\AppData\Roaming/ghc-api\github_token.txt
+Refreshing Copilot token...
+Copilot token refreshed successfully
+Loaded 43 models
+[Token Usage] Reporter started (every 300s).
+Application initialized successfully
+
+============================================================
+Available Models
+============================================================
+claude-opus-4.6-1m              ctx: 1000K in: 936K      out: 64K       [Anthropic] (Vision,Tool,Anthropic)
+claude-opus-4.6                 ctx: 200K in: 168K       out: 32K       [Anthropic] (Vision,Tool,Anthropic)
+claude-opus-4.7-1m-internal     ctx: 1000K in: 936K      out: 64K       [Anthropic] (Vision,Tool,Anthropic)
+claude-opus-4.7-high            ctx: 200K in: 168K       out: 32K       [Anthropic] (Vision,Tool,Anthropic)
+claude-opus-4.7-xhigh           ctx: 200K in: 168K       out: 32K       [Anthropic] (Vision,Tool,Anthropic)
+claude-opus-4.7                 ctx: 200K in: 168K       out: 32K       [Anthropic] (Vision,Tool,Anthropic)
+claude-sonnet-4.6               ctx: 200K in: 168K       out: 32K       [Anthropic] (Vision,Tool,Anthropic)
+gemini-3.1-pro-preview          ctx: 200K in: 136K       out: 64K       [Google] (Vision,Tool,Preview)
+gpt-5.2-codex                   ctx: 400K in: 272K       out: 128K      [OpenAI] (Vision,Tool)
+gpt-5.3-codex                   ctx: 400K in: 272K       out: 128K      [OpenAI] (Vision,Tool)
+gpt-5.4-mini                    ctx: 400K in: 272K       out: 128K      [OpenAI] (Vision,Tool)
+gpt-5.4                         ctx: 400K in: 272K       out: 128K      [OpenAI] (Vision,Tool)
+gpt-5.5                         ctx: 400K in: 272K       out: 128K      [OpenAI] (Vision,Tool)
+accounts/msft/routers/f185i3v4  ctx: 256K in: 200K       out: 1K        [] (Tool,Preview)
+accounts/msft/routers/fmfeto88  ctx: 256K in: 200K       out: 1K        [Fireworks] (Tool,Preview)
+accounts/msft/routers/gdjv4v2v  ctx: 256K in: 200K       out: 1K        [Fireworks] (Tool,Preview)
+gpt-5-mini                      ctx: 264K in: 128K       out: 64K       [Azure OpenAI] (Vision,Tool)
+gpt-4o-mini-2024-07-18          ctx: 128K in: 12K        out: 4K        [Azure OpenAI] (Tool)
+gpt-4o-2024-11-20               ctx: 128K in: 64K        out: 16K       [Azure OpenAI] (Vision,Tool)
+gpt-4o-2024-08-06               ctx: 128K in: 64K        out: 16K       [Azure OpenAI] (Tool)
+text-embedding-3-small          ctx: 0 in: N/A   out: N/A       [Azure OpenAI] ()
+text-embedding-3-small-inference        ctx: 0 in: N/A   out: N/A       [Azure OpenAI] ()
+claude-sonnet-4.5               ctx: 200K in: 168K       out: 32K       [Anthropic] (Vision,Tool,Anthropic)
+claude-opus-4.5                 ctx: 200K in: 168K       out: 32K       [Anthropic] (Vision,Tool,Anthropic)
+claude-haiku-4.5                ctx: 200K in: 136K       out: 64K       [Anthropic] (Vision,Tool,Anthropic)
+gemini-3-flash-preview          ctx: 128K in: 128K       out: 64K       [Google] (Vision,Tool,Preview)
+gemini-2.5-pro                  ctx: 128K in: 128K       out: 64K       [Google] (Vision,Tool)
+gpt-4.1-2025-04-14              ctx: 128K in: 128K       out: 16K       [Azure OpenAI] (Vision,Tool)
+gpt-5.2                         ctx: 400K in: 272K       out: 128K      [OpenAI] (Vision,Tool)
+gpt-41-copilot                  ctx: 0 in: N/A   out: N/A       [Azure OpenAI] ()
+gpt-3.5-turbo-0613              ctx: 16K in: 12K         out: 4K        [Azure OpenAI] (Tool)
+gpt-4                           ctx: 32K in: 32K         out: 4K        [Azure OpenAI] (Tool)
+gpt-4-0613                      ctx: 32K in: 32K         out: 4K        [Azure OpenAI] (Tool)
+gpt-4-0125-preview              ctx: 128K in: 64K        out: 4K        [Azure OpenAI] (Tool)
+gpt-4o-2024-05-13               ctx: 128K in: 64K        out: 4K        [Azure OpenAI] (Vision,Tool)
+gpt-4-o-preview                 ctx: 128K in: 64K        out: 4K        [Azure OpenAI] (Tool)
+gpt-4.1                         ctx: 128K in: 128K       out: 16K       [Azure OpenAI] (Vision,Tool)
+gpt-3.5-turbo                   ctx: 16K in: 12K         out: 4K        [Azure OpenAI] (Tool)
+gpt-4o-mini                     ctx: 128K in: 12K        out: 4K        [Azure OpenAI] (Tool)
+gpt-4                           ctx: 32K in: 32K         out: 4K        [Azure OpenAI] (Tool)
+gpt-4o                          ctx: 128K in: 64K        out: 4K        [Azure OpenAI] (Vision,Tool)
+gpt-4-o-preview                 ctx: 128K in: 64K        out: 4K        [Azure OpenAI] (Tool)
+text-embedding-ada-002          ctx: 0 in: N/A   out: N/A       [Azure OpenAI] ()
+
+============================================================
+
+
+============================================================
+Model Name Mappings
+============================================================
+
+Exact Mappings:
+  opus -> claude-opus-4.6
+  sonnet -> claude-sonnet-4.5
+  haiku -> claude-haiku-4.5
+  claude-opus-4-6 -> claude-opus-4.6
+  claude-opus-4-5 -> claude-opus-4.5
+  claude-haiku-4-5 -> claude-haiku-4.5
+
+Prefix Mappings:
+  claude-sonnet-4-* -> claude-sonnet-4
+  claude-haiku-4.5-* -> claude-haiku-4.5
+  claude-opus-4.5-* -> claude-opus-4.5
+  claude-haiku-4-5-* -> claude-haiku-4.5
+  claude-opus-4-5-* -> claude-opus-4.5
+  claude-opus-4-6-* -> claude-opus-4.6
+  claude-opus-4.6-* -> claude-opus-4.6
+
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="http://localhost:8313/v1",
+    api_key="dummy"
+)
+
+response = client.responses.create(
+    model="claude-opus-4-5",
+    input="写一个Python函数计算斐波那契数列"
+)
+
+print(response.output_text)
+
